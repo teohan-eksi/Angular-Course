@@ -10,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   //property binding
   allowNewServer: boolean = true;
+  buttonStatus: string = "disabled: " + this.allowNewServer;
 
   //constructor is run when the component is created.
   constructor() { 
     setTimeout(()=> {
       this.allowNewServer = false;
+      this.buttonStatus = "disabled: " + this.allowNewServer;
     }, 2000)
   }
 

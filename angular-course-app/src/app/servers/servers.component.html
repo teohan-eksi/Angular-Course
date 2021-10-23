@@ -3,7 +3,13 @@
 <!-- property binding -->
 <button 
     class="btn btn-primary"
-    [disabled] = "allowNewServer">Add Server</button>
+    [disabled] ="allowNewServer">
+    Add Server
+</button>
+
+<!-- don't mix property binding and string interpolation-->
+<p [innerText] = "buttonStatus"></p>
+<p>{{buttonStatus}} (string interpolation)</p>
 
 <app-server></app-server>
 <app-server></app-server>
