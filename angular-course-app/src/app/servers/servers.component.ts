@@ -18,6 +18,7 @@ export class ServersComponent implements OnInit {
 
   //directives
   serverCreated: boolean = false;
+  servers = ["server1", "server2"];
 
   //constructor is run when the component is created.
   constructor() { 
@@ -33,6 +34,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer(){
     this.createServer = "Creating server with name " + this.serverName;
+    this.servers.push(this.serverName);
     this.serverCreated = true;
   }
 
