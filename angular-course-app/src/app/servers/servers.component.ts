@@ -16,11 +16,15 @@ export class ServersComponent implements OnInit {
   createServer: string = "";
   serverName: string = "enter server name";
 
+  //directives
+  serverCreated: boolean = false;
+
   //constructor is run when the component is created.
   constructor() { 
     setTimeout(()=> {
       this.allowNewServer = false;
       this.buttonStatus = "disabled: " + this.allowNewServer;
+      this.serverName = "";
     }, 2000)
   }
 
@@ -29,6 +33,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer(){
     this.createServer = "Creating server with name " + this.serverName;
+    this.serverCreated = true;
   }
 
   onUpdateServerName(event: Event){

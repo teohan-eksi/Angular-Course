@@ -12,7 +12,7 @@
 <input
     type="text"
     class="form-control"
-    (click)="serverName=''"
+    (click)="serverName=''; createServer=''"
     [(ngModel)]="serverName">
 <p>{{ serverName }}</p>
 
@@ -27,7 +27,11 @@
 <p [innerText] = "buttonStatus"></p>
 <!-- <p>{{buttonStatus}} (string interpolation)</p> -->
 
-<p>{{ createServer }}</p>
+<!-- p element is put into the DOM only if serverCreated is true. Not hidden, but put-->
+<p *ngIf="serverCreated else noServer">{{ createServer }}</p>
+<ng-template #noServer>
+    <p>enter server name and add it.</p>
+</ng-template>
 
 <app-server></app-server>
 <app-server></app-server>
