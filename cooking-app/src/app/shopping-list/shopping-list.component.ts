@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Ingredient } from "../shared/ingredients.modal";
 
 
 
@@ -8,5 +9,9 @@ import { Component } from "@angular/core";
 })
 
 export class ShoppingListComponent{
+    ingredients: Ingredient[] = [
+        new Ingredient("potatoes", 2),
+        new Ingredient("tomatoes", 2)
+    ];
 
 }
