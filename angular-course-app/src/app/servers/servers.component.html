@@ -1,16 +1,18 @@
 
 <!-- event binding -->
 <label>Server Name</label>
+<!--
 <input
     type="text"
     class="form-control"
     (input)="onUpdateServerName($event)">
-<p>{{ serverName }}</p>
+<p>{{ serverName }}</p>-->
 
 <!-- two way data binding-->
 <input
     type="text"
     class="form-control"
+    (click)="serverName=''"
     [(ngModel)]="serverName">
 <p>{{ serverName }}</p>
 
@@ -23,7 +25,7 @@
 
 <!-- don't mix property binding and string interpolation-->
 <p [innerText] = "buttonStatus"></p>
-<p>{{buttonStatus}} (string interpolation)</p>
+<!-- <p>{{buttonStatus}} (string interpolation)</p> -->
 
 <p>{{ createServer }}</p>
 
