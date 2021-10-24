@@ -14,7 +14,7 @@ export class ServersComponent implements OnInit {
 
   //event binding
   createServer: string = "";
-  serverName: string = "";
+  serverName: string = "enter server name";
 
   //constructor is run when the component is created.
   constructor() { 
