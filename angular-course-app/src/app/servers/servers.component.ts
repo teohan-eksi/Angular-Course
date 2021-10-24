@@ -12,6 +12,10 @@ export class ServersComponent implements OnInit {
   allowNewServer: boolean = true;
   buttonStatus: string = "disabled: " + this.allowNewServer;
 
+  //event binding
+  createServer: string = "";
+  serverName: string = "";
+
   //constructor is run when the component is created.
   constructor() { 
     setTimeout(()=> {
@@ -23,4 +27,11 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCreateServer(){
+    this.createServer = "Creating server...";
+  }
+
+  onUpdateServerName(event: Event){
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
 }
