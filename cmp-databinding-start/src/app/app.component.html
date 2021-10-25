@@ -1,5 +1,17 @@
 <div class="container">
   <app-add-item (serverElements)="getServerElements($event)"></app-add-item>
   <hr>
-  <app-show-item [serverElementsArray]="serverElementsArray"></app-show-item> 
+  <app-show-item [serverElementsArray]="serverElementsArray">
+    <div
+        class="panel panel-default"
+        *ngFor="let element of serverElementsArray">
+        <div class="panel-heading">{{ element.name }}</div>
+        <div class="panel-body">
+          <p>
+            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+            <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+          </p>
+        </div>
+    </div>
+  </app-show-item> 
 </div>
