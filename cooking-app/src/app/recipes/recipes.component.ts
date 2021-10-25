@@ -11,6 +11,7 @@ import { Recipe } from "./recipe.model";
 export class RecipesComponent{
     recipe: Recipe;
 
+    //get recipe from RecipeListComponent
     getRecipe(recipe){
        this.recipe = recipe; 
     }

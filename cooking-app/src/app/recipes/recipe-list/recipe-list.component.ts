@@ -17,6 +17,7 @@ export class RecipeListComponent{
 
     @Output() sendRecipe = new EventEmitter<Recipe>();
 
+    //get recipe from RecipeItemComponent and send it to RecipesComponent
     getRecipe(recipe: Recipe){
         this.sendRecipe.emit(recipe);
     }

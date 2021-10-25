@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   loadedFeature: string = 'recipes'
 
+  //manage header menu
   onNavigate(feature){
     this.loadedFeature = feature;
   }

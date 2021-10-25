@@ -3,6 +3,7 @@
         <app-recipe-list (sendRecipe)="getRecipe($event)"></app-recipe-list>
     </div>
     <div class="col-md-7">
+        <!-- show recipe-detail and pass recipe down if it is defined.-->
         <app-recipe-detail 
             *ngIf="recipe; else infoText"
             [recipe]="recipe"

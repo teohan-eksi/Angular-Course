@@ -15,6 +15,7 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //send recipe to RecipeListComponent
   recipeClicked(event: Event, recipe: Recipe){
     event.preventDefault();
     this.sendRecipe.emit(recipe);    
