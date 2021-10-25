@@ -11,7 +11,9 @@ export class AddItemComponent{
     newServerContent = '';
     @Output() serverElements = new EventEmitter<{type: string, name: string, content: string}>();
        
-    onAddServer() {
+    onAddServer(nameInput) {
+      console.log(nameInput.value);
+      
     this.serverElements.emit({
       type: 'server',
       name: this.newServerName,
