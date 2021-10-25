@@ -14,7 +14,6 @@ export class AppComponent implements OnChanges {
 
   constructor(){
     console.log("app component constructor run");
-    
   }
 
   //use for reacting to changes
