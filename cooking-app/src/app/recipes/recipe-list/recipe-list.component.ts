@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 
 import { Recipe } from '../recipe.model';
 
@@ -15,4 +15,9 @@ export class RecipeListComponent{
         "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Re8FcdH8gx_bTC2RcVfFCAHaHa%26pid%3DApi&f=1")
     ];
 
+    @Output() sendRecipe = new EventEmitter<Recipe>();
+
+    getRecipe(recipe: Recipe){
+        this.sendRecipe.emit(recipe);
+    }
 }
