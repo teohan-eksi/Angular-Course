@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 
 
 @Component({
@@ -10,14 +10,16 @@ export class AddItemComponent{
     newServerName = '';
     newServerContent = '';
     @Output() serverElements = new EventEmitter<{type: string, name: string, content: string}>();
-       
-    onAddServer(nameInput) {
-      console.log(nameInput.value);
       
+    @ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
+
+    onAddServer(nameInput: HTMLInputElement){
     this.serverElements.emit({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      //got with local reference in the template
+      name: nameInput.value,
+      //got with ViewChild
+      content: this.serverContentInput.nativeElement.value 
     });
   }
 
