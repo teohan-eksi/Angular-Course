@@ -1,4 +1,4 @@
-import { Directive, TemplateRef, Input, ViewContainerRef, HostListener, HostBinding } from '@angular/core';
+import { Directive, ElementRef, HostBinding, Renderer2 } from '@angular/core';
 
 
 @Directive({
@@ -7,9 +7,19 @@ import { Directive, TemplateRef, Input, ViewContainerRef, HostListener, HostBind
 
 export class DropdownDirective{
     // [class.className] = condition
+    //true means insert that class; false means removes that class.
     @HostBinding('class.open') showClass = false;
 
-    @HostListener('click') onHostClick(){
-        this.showClass = !this.showClass;
+    constructor(elementRef: ElementRef, renderer: Renderer2){
+        renderer.listen('window', 'click', (event: Event)=>{
+            if(elementRef.nativeElement.contains(event.target)){
+                //this means the element with DropdownDirective (host) was clicked.
+                //toggle the menu between touches.
+                this.showClass = !this.showClass;
+            }else{
+                //close the dropdown menu if clicked anywhere outside the host.
+                this.showClass = false;
+            }
+        });
     }
 }
