@@ -16,12 +16,14 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <div class="btn-group">
+        <div class="btn-group" appDropdown>
             <button 
-                class="btn btn-primary dropdown-toggle">
+                class="btn btn-primary dropdown-toggle" 
+                (click)="onManageRecipe()">
                 Manage Recipe <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu">
+            <ul 
+                class="dropdown-menu">
                 <li><a href="">Add ingredients</a></li>
                 <li><a href="">edit recipe</a></li>
                 <li><a href="">delete recipe</a></li>

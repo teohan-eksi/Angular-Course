@@ -7,6 +7,7 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+  isOpen: boolean = false;
 
   constructor() { }
 
@@ -16,4 +17,7 @@ export class RecipeDetailComponent implements OnInit {
   //got recipe from RecipesComponent
   @Input() recipe: Recipe;
   
+  onManageRecipe(){
+    this.isOpen = !this.isOpen;
+  }
 }
