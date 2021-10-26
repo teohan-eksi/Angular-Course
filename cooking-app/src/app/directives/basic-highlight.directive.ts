@@ -1,16 +1,27 @@
-import { Directive, ElementRef, OnInit } from "@angular/core";
+import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from "@angular/core";
 
 @Directive({
     selector: '[appBasicHighlight]'
 })
 
 export class BasicHighlightDirective implements OnInit{
-    constructor(private elementRef: ElementRef){
+    constructor(private elementRef: ElementRef, private renderer: Renderer2){
         
     }
 
+    //use renderer for any DOM manipulations
     ngOnInit(){
-        this.elementRef.nativeElement.style.backgroundColor = 'green';
-        this.elementRef.nativeElement.style.color = 'white';
+        this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+        this.renderer.setStyle(this.elementRef.nativeElement, 'color', 'white');
+    }
+    
+    @HostListener('mouseenter') mouseHoverEnter(event: Event){
+        this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'green');
+        this.renderer.setStyle(this.elementRef.nativeElement, 'color', 'white');
+    }
+
+    @HostListener('mouseleave') mouseHoverLeave(event: Event){
+        this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'blue');
+        this.renderer.setStyle(this.elementRef.nativeElement, 'color', 'white');
     }
 }
