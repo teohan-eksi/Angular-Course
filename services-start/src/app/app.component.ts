@@ -9,7 +9,8 @@ import { AccountsService } from './services/account.service';
 })
 export class AppComponent {
   accounts: {name: string, status: string}[];
-  
+ 
+  //main instance of the AccountsService
   constructor(private accountsService: AccountsService){}
 
   ngOnInit(){

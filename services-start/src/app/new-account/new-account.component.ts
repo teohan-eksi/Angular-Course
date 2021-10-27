@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
 import { AccountsService } from '../services/account.service';
-import { LoggingService } from '../services/logging.service';
 
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService] //dont add AccountsSercice here, use the one instantiated in the AppComponent.
+  styleUrls: ['./new-account.component.css']
+  //providers: [] //using AppComponent AccountsService 
 })
 export class NewAccountComponent {
 
-  constructor(private loggingService: LoggingService,
-    private accountsService: AccountsService){}
+  constructor(private accountsService: AccountsService){}
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountsService.addAccount(accountName, accountStatus);
-    this.loggingService.logS(accountStatus);
   }
 }
