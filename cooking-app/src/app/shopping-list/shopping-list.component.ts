@@ -14,5 +14,8 @@ export class ShoppingListComponent{
 
     ngOnInit(){
         this.ingredients = this.shoppingService.getIngredients();
+        this.shoppingService.ingredientsEmitter.subscribe((ingredients: Ingredient[])=>{
+            this.ingredients = ingredients;
+        });
     }
 }

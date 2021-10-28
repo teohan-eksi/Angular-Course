@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ShoppingService } from 'src/app/services/shopping.service';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -12,7 +13,13 @@ export class RecipeDetailComponent {
   //got recipe from RecipesComponent
   @Input() recipe: Recipe;
   
+  constructor(private shoppingService:ShoppingService){}
+
   onManageRecipe(){
     this.isOpen = !this.isOpen;
+  }
+
+  onAddIngredients(){
+    this.shoppingService.addIngredients(this.recipe.ingredients);
   }
 }
