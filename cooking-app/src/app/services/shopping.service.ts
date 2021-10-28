@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output, EventEmitter } from "@angular/core";
 import { Ingredient } from "../shared/ingredients.modal";
 
 @Injectable({providedIn: 'root'})//makes it application wide
@@ -9,17 +9,20 @@ export class ShoppingService{
         new Ingredient("tomatoes", 2)
     ];
 
-    ingredientsCopy: Ingredient[];
+    @Output() ingredientsEmitter = new EventEmitter<Ingredient[]>();
+
     getIngredients(){
-        /*this.ingredientsCopy = this.ingredients.slice();
-        return this.ingredientsCopy;*/
-        return this.ingredients;        
+        return this.ingredients.slice();        
     }
 
     addIngredient(ingredient: Ingredient){
-        //this.ingredientsCopy.push(ingredient);
         this.ingredients.push(ingredient);
+        this.ingredientsEmitter.emit(this.ingredients.slice());
     }
 
+    addIngredients(ingredients: Ingredient[]){
+        this.ingredients.push(...ingredients);
+        this.ingredientsEmitter.emit(this.ingredients.slice());
+    }
 
 }
