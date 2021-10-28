@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
-import { SelectRecipeService } from 'src/app/services/select-recipe.service'; 
+import { RecipeService } from 'src/app/services/recipe.service'; 
 
 @Component({
   selector: 'app-recipe-item',
@@ -11,14 +11,12 @@ import { SelectRecipeService } from 'src/app/services/select-recipe.service';
 export class RecipeItemComponent {
   @Input() recipe: Recipe;
 
-  constructor(private selectRecipeService: SelectRecipeService) {}
+  constructor(private recipeService: RecipeService) {}
 
-  //send recipe to SelectRecipeService
+  //send recipe to RecipeService
   recipeClicked(event: Event, recipe: Recipe){
     event.preventDefault();
-    this.selectRecipeService.sendRecipe(recipe);
+    this.recipeService.sendRecipe(recipe);
   }
-
-
 
 }

@@ -14,7 +14,6 @@ export class ShoppingListComponent{
         new Ingredient("tomatoes", 2)
     ];
 
-
     //got ingredient from ShoppingEditComponent
     getIngredient(ingredient: Ingredient){
        this.ingredients.push(ingredient); 
